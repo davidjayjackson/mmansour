@@ -1,0 +1,73 @@
+---
+title: "Mandatory assignment"
+author: "MM"
+date: "29/11/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## tidyverse is a neccesary library and we have to use it when knit is present
+```{r}
+library(tidyverse)
+```
+
+# Load dataset into R from a csv file
+
+```{r}
+PG_data <- readr::read_delim('PlantGrowth.txt', delim = '\t')
+```
+
+## Our data
+```{r}
+PlantGrowth
+```
+
+
+# Calculate summary statistics of dataset
+
+## To calculate summary statistics of our dataset we have to use the function summary. The good thing about this function is that you get all neccesary information at the same time. We get min., 1st Qu., Median, Mean, 3rd Qu. and max.
+
+```{r}
+summary(PlantGrowth, na.rm=TRUE)
+```
+
+## The following is just to show how to calculate the mean and range in a different way
+```{r}
+mean(PlantGrowth$weight)
+```
+
+```{r}
+range(PlantGrowth$weight, na.rm=TRUE)
+```
+
+```{r}
+sd(PlantGrowth$weight, na.rm=TRUE)
+```
+
+
+# Make a plot of the data
+
+```{r}
+PlantGrowth
+```
+
+
+
+```{r}
+ggplot(data=weight)+
+  geom_bar(mapping=aes(weight),color='steelblue')+
+  labs(title ='Plant Growth',
+       x='Weight',
+       y='Group')
+```
+
+
+
+# Conduct a hypothesis test based on the data
+
+```{r}
+t.test(PlantGrowth$weight, na.rm=TRUE)
+```
