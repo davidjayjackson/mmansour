@@ -57,7 +57,7 @@ PlantGrowth
 
 
 ```{r}
-ggplot(data=weight)+
+ggplot(data=PlantGrowth)+
   geom_bar(mapping=aes(weight),color='steelblue')+
   labs(title ='Plant Growth',
        x='Weight',
